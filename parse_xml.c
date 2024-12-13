@@ -17,7 +17,7 @@ void printBookTitles(const char *filename) {
         if (curNode->type == XML_ELEMENT_NODE && xmlStrcmp(curNode->name, (const xmlChar *)"book") == 0) {
             for (xmlNode *bookChild = curNode->children; bookChild; bookChild = bookChild->next) {
                 if (bookChild->type == XML_ELEMENT_NODE && xmlStrcmp(bookChild->name, (const xmlChar *)"title") == 0) {
-                    printf("Title: %s\n", xmlNodeGetContent(bookChild));
+                    printf("Book Title: %s\n", xmlNodeGetContent(bookChild));
                 }
             }
         }
@@ -37,4 +37,3 @@ int main(int argc, char **argv) {
     printBookTitles(argv[1]);
     return 0;
 }
-
